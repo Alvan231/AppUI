@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,16 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SetStringFragment extends Fragment {
+
+    View view;
+
+    //up_str_tv, down_str_tv, left_str_tv, right_str_tv
+    TextView up_str_tv, down_str_tv, left_str_tv, right_str_tv;
+
+    //up_edit, down_edit, left_edit, right_edit
+    EditText up_edit, down_edit, left_edit, right_edit;
+
+    Button RefactorBtn;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +73,41 @@ public class SetStringFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_set_string, container, false);
+        view = inflater.inflate(R.layout.fragment_set_string, container, false);
+
+        up_str_tv = view.findViewById(R.id.up_str_tv);
+        down_str_tv = view.findViewById(R.id.down_str_tv);
+        left_str_tv = view.findViewById(R.id.left_str_tv);
+        right_str_tv = view.findViewById(R.id.right_str_tv);
+
+        up_edit = view.findViewById(R.id.up_edit);
+        down_edit = view.findViewById(R.id.down_edit);
+        left_edit = view.findViewById(R.id.left_edit);
+        right_edit = view.findViewById(R.id.right_edit);
+
+        RefactorBtn = view.findViewById(R.id.refactor_btn);
+
+        //set string
+        RefactorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!up_edit.getText().toString().isEmpty()) {
+                    up_str_tv.setText(up_edit.getText().toString());
+                }
+                if(!down_edit.getText().toString().isEmpty()) {
+                    down_str_tv.setText(down_edit.getText().toString());
+                }
+                if(!left_edit.getText().toString().isEmpty()) {
+                    left_str_tv.setText(left_edit.getText().toString());
+                }
+                if(!right_edit.getText().toString().isEmpty()) {
+                    right_str_tv.setText(right_edit.getText().toString());
+                }
+                Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return view;
     }
+
 }
