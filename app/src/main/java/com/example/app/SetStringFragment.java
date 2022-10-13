@@ -93,15 +93,19 @@ public class SetStringFragment extends Fragment {
             public void onClick(View v) {
                 if(!up_edit.getText().toString().isEmpty()) {
                     up_str_tv.setText(up_edit.getText().toString());
+                    up_edit.setText(null);
                 }
                 if(!down_edit.getText().toString().isEmpty()) {
                     down_str_tv.setText(down_edit.getText().toString());
+                    down_edit.setText(null);
                 }
                 if(!left_edit.getText().toString().isEmpty()) {
                     left_str_tv.setText(left_edit.getText().toString());
+                    left_edit.setText(null);
                 }
                 if(!right_edit.getText().toString().isEmpty()) {
                     right_str_tv.setText(right_edit.getText().toString());
+                    right_edit.setText(null);
                 }
                 Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
             }

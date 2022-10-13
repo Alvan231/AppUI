@@ -17,25 +17,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="地區"
-            android:textSize="26dp"
             android:textColor="@color/white95"
+            android:textSize="26dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
+
         <TextView
-            android:id="@+id/time"
-            android:layout_width="match_parent"
+            android:id="@+id/week"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Mon, 1:20 am"
             android:textColor="@color/white95"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/area"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextClock
+            android:id="@+id/textclock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="h:mm"
+            android:textColor="@color/white95"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/week"
             app:layout_constraintTop_toBottomOf="@+id/area"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -43,29 +58,38 @@
             android:id="@+id/weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="晴天"
-            android:textSize="30dp"
             android:textColor="@color/white95"
+            android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/temperature"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/textclock"
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="25°C"
-            android:textSize="100dp"
-            android:textColor="@color/white95"
             android:fontFamily="@font/msjh_0"
+            android:textColor="@color/white95"
+            android:textSize="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/area"
+            app:layout_constraintVertical_bias="0.203" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
