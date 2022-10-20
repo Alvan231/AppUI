@@ -27,7 +27,8 @@ public class SetStringFragment extends Fragment {
     //up_edit, down_edit, left_edit, right_edit
     EditText up_edit, down_edit, left_edit, right_edit;
 
-    Button RefactorBtn;
+    //Button RefactorBtn;
+    Button up_button, down_button, left_button, right_button;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,19 +76,25 @@ public class SetStringFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_set_string, container, false);
 
+        /*
         up_str_tv = view.findViewById(R.id.up_str_tv);
         down_str_tv = view.findViewById(R.id.down_str_tv);
         left_str_tv = view.findViewById(R.id.left_str_tv);
         right_str_tv = view.findViewById(R.id.right_str_tv);
+         */
 
         up_edit = view.findViewById(R.id.up_edit);
         down_edit = view.findViewById(R.id.down_edit);
         left_edit = view.findViewById(R.id.left_edit);
         right_edit = view.findViewById(R.id.right_edit);
 
-        RefactorBtn = view.findViewById(R.id.refactor_btn);
+        up_button = view.findViewById(R.id.up_button);
+        down_button = view.findViewById(R.id.down_button);
+        left_button = view.findViewById(R.id.left_button);
+        right_button = view.findViewById(R.id.right_button);
 
         //set string
+        /*
         RefactorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,6 +117,7 @@ public class SetStringFragment extends Fragment {
                 Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
             }
         });
+         */
 
         return view;
     }

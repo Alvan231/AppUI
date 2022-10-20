@@ -26,5 +26,6 @@
         android:background="@color/white"
         app:itemTextColor="@color/bottom_nav_color"
         app:itemIconTint="@color/bottom_nav_color"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_nev_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
