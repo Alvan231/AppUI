@@ -30,6 +30,14 @@
         <entry key="..\:/program/app/AppUI/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1645" />
         <entry key="..\:/program/app/AppUI/app/src/main/res/drawable/backgroundcolor1.xml" value="0.1585" />
         <entry key="..\:/program/app/AppUI/app/src/main/res/layout/fragment_home.xml" value="0.47327502429543244" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/drawable/edit_background.xml" value="0.1735" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/drawable/round_button.xml" value="0.1735" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/drawable/round_button2.xml" value="0.1735" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/drawable/rounded_corners_style.xml" value="0.1735" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/layout/fragment_profile.xml" value="0.24864130434782608" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/layout/fragment_set_string.xml" value="0.12335359675785208" />
+        <entry key="..\:/program/app/clone/AppUI/app/src/main/res/menu/bottom_nev_menu.xml" value="0.24974358974358973" />
       </map>
     </option>
   </component>

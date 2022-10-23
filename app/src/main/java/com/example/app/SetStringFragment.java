@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +30,8 @@ import android.widget.Toast;
 public class SetStringFragment extends Fragment {
 
     View view;
+
+    String base_url = "http://132.226.10.241:11222/";
 
     //up_str_tv, down_str_tv, left_str_tv, right_str_tv
     TextView up_str_tv, down_str_tv, left_str_tv, right_str_tv;
@@ -93,6 +105,38 @@ public class SetStringFragment extends Fragment {
         left_button = view.findViewById(R.id.left_button);
         right_button = view.findViewById(R.id.right_button);
 
+        up_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String direction ="5";
+                methodPUT("admin", direction, up_edit.getText().toString());
+            }
+        });
+
+        down_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String direction ="6";
+                methodPUT("admin", direction, down_edit.getText().toString());
+            }
+        });
+
+        left_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String direction ="4";
+                methodPUT("admin", direction, left_edit.getText().toString());
+            }
+        });
+
+        right_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String direction ="3";
+                methodPUT("admin", direction, right_edit.getText().toString());
+            }
+        });
+
         //set string
         /*
         RefactorBtn.setOnClickListener(new View.OnClickListener() {
@@ -122,4 +166,22 @@ public class SetStringFragment extends Fragment {
         return view;
     }
 
+    public void methodPUT(String user, String direction, String string) {
+        final String REGISTER_URL = base_url + "gesture_msg/" + user + "/" + direction + "/" + string;
+        Utf8StringRequest stringRequest = new Utf8StringRequest(Request.Method.PUT, REGISTER_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("info","response : " + response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("error","onErrorResponse");
+                    }
+                });
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        requestQueue.add(stringRequest);
+    }
 }

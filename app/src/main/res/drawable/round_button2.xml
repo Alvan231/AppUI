@@ -6,7 +6,7 @@
         <shape android:shape="rectangle">
             <!--設定圓角，當設置的圓角半徑很大，就可變成弧形邊了-->
             <corners android:radius="15dip" />
-            <gradient android:angle="-90" android:startColor="#efefef" android:endColor="#efefef"  />
+            <gradient android:angle="-90" android:startColor="@color/white" android:endColor="@color/white"  />
         </shape>
     </item>
 
@@ -15,7 +15,7 @@
         <shape android:shape="rectangle"  >
             <corners android:radius="15dip" />
             <!--漸層顏色-->
-            <gradient android:angle="-90" android:startColor="#efefef" android:endColor="#efefef"  />
+            <gradient android:angle="-90" android:startColor="@color/white" android:endColor="@color/white"  />
         </shape>
     </item>
 </selector>

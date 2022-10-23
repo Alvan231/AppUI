@@ -21,7 +21,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2">
+            app:layout_constraintVertical_bias="0.15">
 
             <Spinner
                 android:id="@+id/spinner"
@@ -38,10 +38,10 @@
             android:id="@+id/input_string"
             android:layout_width="375dp"
             android:layout_height="200dp"
-            android:maxLength="120"
-            android:textSize="30dp"
             android:background="@drawable/edit_background"
             android:gravity="start"
+            android:maxLength="120"
+            android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,16 +50,17 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="300dp"
+            android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:background="@drawable/round_button2"
-            android:text="Button"
+            android:textAllCaps="false"
+            android:text="Send message"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintVertical_bias="0.85" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
