@@ -110,6 +110,7 @@ public class SetStringFragment extends Fragment {
             public void onClick(View v) {
                 String direction ="5";
                 methodPUT("admin", direction, up_edit.getText().toString());
+                Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -118,6 +119,7 @@ public class SetStringFragment extends Fragment {
             public void onClick(View v) {
                 String direction ="6";
                 methodPUT("admin", direction, down_edit.getText().toString());
+                Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -126,6 +128,7 @@ public class SetStringFragment extends Fragment {
             public void onClick(View v) {
                 String direction ="4";
                 methodPUT("admin", direction, left_edit.getText().toString());
+                Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -134,6 +137,7 @@ public class SetStringFragment extends Fragment {
             public void onClick(View v) {
                 String direction ="3";
                 methodPUT("admin", direction, right_edit.getText().toString());
+                Toast.makeText(getContext(),"Refactor",Toast.LENGTH_SHORT).show();
             }
         });
 

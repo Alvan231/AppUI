@@ -41,10 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "getLocal: ";
 
     String base_url = "http://132.226.10.241:11222/";
-    String weather_url = base_url + "weather/120.52/23.681";
-
-
-
+    String user = "admin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,18 +77,19 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.setstring:
                     replaceFragement(new SetStringFragment());
                     break;
+                /*
                 case R.id.location:
                     replaceFragement(new MapsFragment());
                     break;
+                */
                 case R.id.profile:
                     replaceFragement(new ProfileFragment());
                     break;
-                /*
+
                 case R.id.settings:
                     replaceFragement(new SettingsFragment());
                     break;
 
-                */
             }
             return  true;
         });
@@ -120,6 +118,69 @@ public class MainActivity extends AppCompatActivity {
             }
             super.onCallStateChanged(currentCallState, incomingNumber);
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        getLocal();
+    }
+
+    private void getLocal() {
+        /**沒有權限則返回*/
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                    checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+        }
+        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        String localProvider = "";
+        /**知道位置後..*/
+        Location location = manager.getLastKnownLocation(localProvider);
+        if (location != null){
+            updateLocation(location);
+        }else{
+            Log.d(TAG, "getLocal: ");
+            manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 10, mListener);
+            manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10000, 10, mListener);
+        }
+    }
+    /**監聽位置變化*/
+    LocationListener mListener = new LocationListener() {
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+        @Override
+        public void onProviderEnabled(String provider) {
+        }
+        @Override
+        public void onProviderDisabled(String provider) {
+        }
+        @Override
+        public void onLocationChanged(Location location) {
+            updateLocation(location);
+        }
+    };
+
+    private void updateLocation(Location location){
+        final String REGISTER_URL = base_url + "GPS/" + user + "/" + location.getLongitude() + "/" + location.getLatitude();
+
+        Utf8StringRequest stringRequest = new Utf8StringRequest(Request.Method.POST, REGISTER_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("info","response : " + response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("error","onErrorResponse");
+                    }
+                });
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        requestQueue.add(stringRequest);
     }
 
 }

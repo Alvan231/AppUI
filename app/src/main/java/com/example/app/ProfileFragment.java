@@ -117,6 +117,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 sendMessage("admin", to_user, str_edit.getText().toString());
+                Toast.makeText(getContext(),"Send message",Toast.LENGTH_SHORT).show();
             }
         });
 
